@@ -1,4 +1,7 @@
 const holes = document.getElementsByClassName('hole')
+const dead = document.getElementById('dead')
+const lost = document.getElementById('lost')
+
 
 const getHole = index => holes[index]
 
@@ -7,24 +10,24 @@ for (let i = 0; i < holes.length; i++) {
 }
 
 function updateCounter(counter) {
-    let num = parseInt(document.getElementById(counter).textContent)
+    let num = parseInt(counter.textContent)
     ++num
-    document.getElementById(counter).textContent = num
+    counter.textContent = num
     return num
 }
 
 function resetCounters() {
-    document.getElementById('dead').textContent = '0'
-    document.getElementById('lost').textContent = '0'
+    dead.textContent = 0
+    lost.textContent = 0
 }
 
 function clickCheck() {
     if (this.classList.contains('hole_has-mole')) {
-        if (updateCounter('dead') === 10) {
+        if (updateCounter(dead) === 10) {
             showAlert('Вы выиграли, ура')
         }
     } else {
-        if (updateCounter('lost') === 5) {
+        if (updateCounter(lost) === 5) {
             showAlert('Вы проиграли :-(')
         }
     }
