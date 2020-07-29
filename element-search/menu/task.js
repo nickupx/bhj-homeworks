@@ -1,14 +1,19 @@
+const links = Array.from(document.getElementsByClassName('menu__link'))
 
-const links = document.getElementsByClassName('menu__link')
-
-for (let i = 0; i < links.length; i++) {
-    if (links[i].closest('li.menu__item').querySelector('ul.menu_sub')) {
-        links[i].onclick = function() {
-            if (document.querySelector('ul.menu_active')) {
-                document.querySelector('ul.menu_active').classList.remove('menu_active')
+function clickHandler(e) {
+    if (this.nextElementSibling) {
+        e.preventDefault()
+        const active = document.querySelector('.menu_active')
+        if (active) {
+            active.classList.remove('menu_active')
+            if (e.target === active.previousElementSibling) {
+                return
             }
-            this.closest('li.menu__item').querySelector('ul.menu_sub').classList.toggle('menu_active')
-            return false
         }
+        this.nextElementSibling.classList.add('menu_active')
     }
+}
+
+for (i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', clickHandler)
 }
