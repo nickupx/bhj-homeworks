@@ -18,7 +18,6 @@ class Game {
   }
 
   registerEvents() {
-    
     document.addEventListener('keyup', (e) => {
       if (this.modificators.includes(e.key)) {
         return
