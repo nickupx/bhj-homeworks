@@ -4,6 +4,7 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.modificators = ['Meta', 'Alt', 'Control', 'Shift'];
 
     this.reset();
 
@@ -17,6 +18,17 @@ class Game {
   }
 
   registerEvents() {
+    
+    document.addEventListener('keyup', (e) => {
+      if (this.modificators.includes(e.key)) {
+        return
+      } else if (e.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
+        this.success()
+      } else {
+        this.fail()
+      }
+    })
+   
     /*
       TODO:
       Написать обработчик события, который откликается
