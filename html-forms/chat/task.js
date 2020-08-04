@@ -45,7 +45,7 @@ function scrollTo() {
  }
 
 setInterval(() => {
-    if (chatWidget.classList.contains('chat-widget_active') && +new Date() >= lastActivity + 3000) {
-        sendRobotMessage('Э, чего спим?')
+    if (chatWidget.classList.contains('chat-widget_active') && +new Date() >= lastActivity + 30000) {
+        sendRobotMessage('Не спать!')
     }
-}, 30000)
+}, 1000)
