@@ -26,10 +26,11 @@ for (item of arr) {
                     }
                 }
         } else {
+            const parent = this.closest('.interests').parentElement.firstElementChild.querySelector('.interest__check')
             if (!countChecked(sibls)) {
-                this.closest('.interests').parentElement.firstElementChild.querySelector('.interest__check').checked = false
+                parent.checked = false
             } else if (countChecked(sibls) === sibls.length) {
-                this.closest('.interests').parentElement.firstElementChild.querySelector('.interest__check').checked = true
+                parent.checked = true
                 }
             }
         }    
