@@ -5,13 +5,13 @@ let date = new Date()
 let dateNormal = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`
 let lastActivity
 
- chatWidget.addEventListener('click', (e) => {
-        chatWidget.classList.add('chat-widget_active')
-        lastActivity = +new Date()
+chatWidget.addEventListener('click', (e) => {
+    chatWidget.classList.add('chat-widget_active')
+    lastActivity = +new Date()
     }
 )
 
- document.addEventListener('keyup', (e) => {
+document.addEventListener('keyup', (e) => {
      if (e.keyCode === 13 && chatWidget.classList.contains('chat-widget_active')) {
          sendClientMessage()
      }
