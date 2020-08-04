@@ -1,7 +1,9 @@
- const chatWidget = document.querySelector('.chat-widget')
- const container = document.querySelector('.chat-widget__messages')
- const messages = document.querySelector('.chat-widget__messages')
- let lastActivity
+const chatWidget = document.querySelector('.chat-widget')
+const container = document.querySelector('.chat-widget__messages')
+const messages = document.querySelector('.chat-widget__messages')
+let date = new Date()
+let dateNormal = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`
+let lastActivity
 
  chatWidget.addEventListener('click', (e) => {
         chatWidget.classList.add('chat-widget_active')
@@ -13,12 +15,9 @@
      if (e.keyCode === 13 && chatWidget.classList.contains('chat-widget_active')) {
          sendClientMessage()
      }
- })
+})
 
- let date = new Date()
- let dateNormal = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`
-
- function sendClientMessage() {
+function sendClientMessage() {
     messages.innerHTML += `
      <div class="message message_client">
         <div class="message__time">${dateNormal}</div>
@@ -27,9 +26,9 @@
     `
     scrollTo()
     setTimeout(sendRobotMessage, 2000)
- }
+}
 
- function sendRobotMessage(messageText = 'Добрый день!') {
+function sendRobotMessage(messageText = 'Добрый день!') {
     messages.innerHTML += `
     <div class="message">
         <div class="message__time">${dateNormal}</div>
@@ -37,15 +36,15 @@
     </div>
     `
     scrollTo()
- }
+}
 
- function scrollTo() {
+function scrollTo() {
     container.parentElement.scrollTo(0, parseInt(getComputedStyle(container).height))
     lastActivity = +new Date()
  }
 
- setInterval(() => {
+setInterval(() => {
     if (chatWidget.classList.contains('chat-widget_active') && +new Date() >= lastActivity + 3000) {
         sendRobotMessage('Э, чего спим?')
     }
- }, 30000)
+}, 30000)
