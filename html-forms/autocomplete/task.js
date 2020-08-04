@@ -3,6 +3,7 @@ class Autocomplete {
     this.container = container;
     this.input = container.querySelector( '.autocomplete__input' );
     this.searchInput = container.querySelector( '.autocomplete__search' );
+    this.searchOptions = container.querySelector('.autocomplete__input').options
     this.list = container.querySelector( '.autocomplete__list' );
     this.valueContainer = container.querySelector( '.autocomplete__value' );
     this.valueElement = container.querySelector( '.autocomplete__text-content' );
@@ -81,13 +82,12 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    const options = this.container.querySelector('.autocomplete__input').options
-    let arr = []
-    for (let option of options) {
-      arr.push({text: option.text, value: option.value})
+    let result = []
+    for (let option of this.searchOptions) {
+      result.push({text: option.text, value: option.value})
     }
-    arr = arr.filter(option => option.text.toLowerCase().includes(text.toLowerCase()))
-    return arr
+    result = result.filter(option => option.text.toLowerCase().includes(text.toLowerCase()))
+    return result
   }
 }
 
