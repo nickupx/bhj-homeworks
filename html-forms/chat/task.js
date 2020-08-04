@@ -12,14 +12,15 @@ chatWidget.addEventListener('click', (e) => {
 )
 
 document.addEventListener('keyup', (e) => {
-     if (e.keyCode === 13 && chatWidget.classList.contains('chat-widget_active')) {
-         sendClientMessage()
-     }
-})
+    if (e.keyCode === 13 && chatWidget.classList.contains('chat-widget_active')) {
+        sendClientMessage()
+        }
+    }
+)
 
 function sendClientMessage() {
     messages.innerHTML += `
-     <div class="message message_client">
+    <div class="message message_client">
         <div class="message__time">${dateNormal}</div>
         <div class="message__text">Добрый день! Хочу купить розы для любимой!</div>
     </div>
