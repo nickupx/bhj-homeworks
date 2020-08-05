@@ -45,7 +45,4 @@ function renderTasks(tasks) {
 
 function updateLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks))
-    if (localStorage.getItem('tasks') === []) {
-        localStorage.clear()
-    }
 }
