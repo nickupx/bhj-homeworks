@@ -82,6 +82,7 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
+   
     let result = []
     for (let option of this.searchOptions) {
       result.push({text: option.text, value: option.value})
