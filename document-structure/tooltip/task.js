@@ -1,0 +1,33 @@
+function showTooltip(e) {
+    e.preventDefault()
+    const query = document.querySelector('.tooltip')
+    const coords = this.getBoundingClientRect()
+    const hrefHeight = this.getBoundingClientRect().bottom - this.getBoundingClientRect().top
+    
+
+    if (query) {
+        if (this.getAttribute('title') === query.textContent) {
+            query.remove()
+            return
+        }
+        query.remove()
+    }
+    let tooltip = document.createElement('div')
+    console.log(tooltip)
+    console.log(this)
+    tooltip.classList.add('tooltip')
+    tooltip.style.cssText = 'left: 0; top: 0'
+    tooltip.style.display = 'block'
+    tooltip.style.top = coords.top + hrefHeight + 'px'
+    tooltip.style.left = coords.left + 'px'
+    tooltip.textContent = this.getAttribute('title')
+    document.body.append(tooltip)
+
+    //setTimeout(() => tooltip.remove(), 2000)
+}
+
+let hrefs = document.getElementsByClassName('has-tooltip')
+
+for (href of hrefs) {
+    href.addEventListener('click', showTooltip)
+}
