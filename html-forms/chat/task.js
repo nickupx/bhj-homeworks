@@ -18,10 +18,10 @@ function scrollTo() {
     container.parentElement.scrollTo(0, parseInt(getComputedStyle(container).height))
  }
 
- function renderMessage(text, client) {
+ function renderMessage(text, isClient) {
      const message = document.createElement('div')
      message.classList.add('message')
-     if (client) {
+     if (isClient) {
          message.classList.add('message_client')
      }
      const msgTime = document.createElement('div')
