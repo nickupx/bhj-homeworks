@@ -61,6 +61,6 @@ input.addEventListener('keyup', function(e) {
 
 setInterval(() => {
     if (chatWidget.classList.contains('chat-widget_active') && +new Date() >= lastActivity + 30000) {
-        renderMessage('Вы не уснули?', false)
+        renderMessage('Вы там не уснули?', false)
     }
 }, 1000)
