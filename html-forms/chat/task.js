@@ -18,26 +18,26 @@ function scrollTo() {
     container.parentElement.scrollTo(0, parseInt(getComputedStyle(container).height))
  }
 
- function renderMessage(text, isClient) {
-     const message = document.createElement('div')
-     message.classList.add('message')
-     if (isClient) {
-         message.classList.add('message_client')
-     }
-     const msgTime = document.createElement('div')
-     msgTime.classList.add('message__time')
-     msgTime.textContent = getCurrentTime()
-     const msgText = document.createElement('div')
-     msgText.classList.add('message__text')
-     msgText.textContent = text
-     message.appendChild(msgTime)
-     message.appendChild(msgText)
-     container.appendChild(message)
-     scrollTo()
-     lastActivity = +new Date()
- }
+function renderMessage(text, isClient) {
+    const message = document.createElement('div')
+    message.classList.add('message')
+    if (isClient) {
+        message.classList.add('message_client')
+    }
+    const msgTime = document.createElement('div')
+    msgTime.classList.add('message__time')
+    msgTime.textContent = getCurrentTime()
+    const msgText = document.createElement('div')
+    msgText.classList.add('message__text')
+    msgText.textContent = text
+    message.appendChild(msgTime)
+    message.appendChild(msgText)
+    container.appendChild(message)
+    scrollTo()
+    lastActivity = +new Date()
+}
 
- chatWidget.addEventListener('click', (e) => {
+chatWidget.addEventListener('click', (e) => {
     chatWidget.classList.add('chat-widget_active')
     lastActivity = +new Date()
     }
