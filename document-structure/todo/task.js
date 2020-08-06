@@ -14,8 +14,8 @@ form.addEventListener('submit', function(e) {
     if (input.value) {
         tasks.push(input.value)
         renderTasks(tasks)
-        updateLocalStorage()
         form.reset()
+        updateLocalStorage()
     }
 })
 
