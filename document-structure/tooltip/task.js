@@ -13,10 +13,7 @@ function showTooltip(e) {
         query.remove()
     }
     let tooltip = document.createElement('div')
-    console.log(tooltip)
-    console.log(this)
     tooltip.classList.add('tooltip')
-    tooltip.style.cssText = 'left: 0; top: 0'
     tooltip.style.display = 'block'
     tooltip.style.top = coords.top + hrefHeight + 'px'
     tooltip.style.left = coords.left + 'px'
@@ -27,7 +24,6 @@ function showTooltip(e) {
 }
 
 let hrefs = document.getElementsByClassName('has-tooltip')
-
 for (href of hrefs) {
     href.addEventListener('click', showTooltip)
 }
