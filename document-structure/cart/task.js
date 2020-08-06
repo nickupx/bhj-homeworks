@@ -68,6 +68,17 @@ function renderCart(cart) {
         })
     }
 
+    const cartItems = document.querySelector('.cart__products').children
+
+    for (item of cartItems) {
+        item.addEventListener('mouseover', function(e) {
+            this.children[2].style.display = 'block'
+        })
+        item.addEventListener('mouseout', function(e) {
+            this.children[2].style.display = 'none'
+        })
+    }
+
     localStorage.setItem('cart', JSON.stringify(cart))
 
     if (!cart.length) {

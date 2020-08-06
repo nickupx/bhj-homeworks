@@ -35,6 +35,9 @@ body {
 .cart__product-delete {
   font-size: 2em;
   cursor: pointer;
+  display: none;
+  position: absolute;
+  bottom: 0;
 }
 
 .product {
