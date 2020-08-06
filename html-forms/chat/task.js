@@ -17,6 +17,7 @@ input.addEventListener('keyup', function(e) {
     console.log(input.value)
     if (e.keyCode === 13) {
         sendClientMessage()
+        input.value = ''
     }
 }
 )
