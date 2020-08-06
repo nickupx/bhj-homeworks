@@ -45,6 +45,7 @@ body {
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .product__title {
   width: 100%;
   text-transform: uppercase;
