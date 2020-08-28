@@ -7,8 +7,6 @@ for (closer of closers) {
     closer.onclick = function() {
         this.closest('.modal').classList.remove('modal_active')
         document.cookie = 'closed=true'
-        console.log(document.cookie)
-        console.log('click')
     }
 }
 
