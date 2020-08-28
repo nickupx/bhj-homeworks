@@ -3,6 +3,7 @@ const xhr = new XMLHttpRequest()
 xhr.open('GET', 'https://netology-slow-rest.herokuapp.com')
 xhr.send()
 
+// тут сознательно использую setInterval, чтобы вспомнить, как он вообще работает :-)
 const checkResponse = setInterval(() => {
     if (xhr.readyState === 4) {
         clearInterval(checkResponse)
