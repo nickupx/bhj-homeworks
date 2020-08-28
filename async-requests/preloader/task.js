@@ -8,7 +8,6 @@ const checkResponse = setInterval(() => {
         clearInterval(checkResponse)
         const response = JSON.parse(xhr.responseText)
         const rates = response.response.Valute
-
         let html = ''
         for (item in rates) {
             let str = `
